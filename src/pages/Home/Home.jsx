@@ -1,12 +1,14 @@
 // import { Helmet } from 'react-helmet';
+import css from './Home.module.css';
 
 const Home = () => {
   return (
-    <div>
+    <div className={css.wrapper}>
       {/* <Helmet> */}
-      <title>Phonebook</title>
+      {/* <title>Phonebook</title> */}
       {/* </Helmet> */}
-      <h1>Welcome to Phonebook!</h1> <p>Log in or create a new account</p>
+      <h1 className={css.title}>Welcome to Phonebook!</h1>{' '}
+      <p className={css.text}>Log in or create a new account</p>
     </div>
   );
 };

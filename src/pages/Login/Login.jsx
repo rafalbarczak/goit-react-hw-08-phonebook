@@ -22,16 +22,18 @@ export const Login = () => {
     <div>
       <>
         {/* <Helmet> */}
-        <title>Log in</title>
+        {/* <title>Log in</title> */}
         {/* </Helmet> */}
         <form onSubmit={handleSubmit}>
-          <label htmlFor="login">Login</label>
-          <input type="text" id="login" name="login" required></input>
+          <label htmlFor="email">Login</label>
+          <input type="text" id="email" name="email" required></input>
           <label htmlFor="password">Password</label>
-          <input type="text" id="password" name="password" required></input>
+          <input type="password" id="password" name="password" required></input>
           <button type="submit">Log in</button>
         </form>
       </>
     </div>
   );
 };
+
+export default Login;

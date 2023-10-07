@@ -22,7 +22,7 @@ export const Register = () => {
   return (
     <>
       {/* <Helmet> */}
-      <title>Registration</title>
+      {/* <title>Registration</title> */}
       {/* </Helmet> */}
       <div>
         <form onSubmit={handleSubmit}>
@@ -38,3 +38,5 @@ export const Register = () => {
     </>
   );
 };
+
+export default Register;

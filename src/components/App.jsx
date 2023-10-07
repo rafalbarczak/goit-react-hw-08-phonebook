@@ -7,8 +7,8 @@ import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { fetchContacts } from 'Redux/operations';
-import { LoginForm } from '../pages/Login/Login';
-import { RegisterForm } from '../pages/Register/Register';
+// import { Login} from '../pages/Login/Login';
+// import { Register } from '../pages/Register/Register';
 import { refreshUser } from 'Redux/auth/operations';
 import { useAuth } from './hooks/useAuth';
 import { PrivateRoute } from './PrivateRoute';
@@ -53,7 +53,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<ContactList />} />
             }
           />
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Route>
       </Routes>
     </div>
