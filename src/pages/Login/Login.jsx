@@ -25,7 +25,7 @@ export const Login = () => {
         {/* <title>Log in</title> */}
         {/* </Helmet> */}
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Login</label>
+          <label htmlFor="email">Email</label>
           <input type="text" id="email" name="email" required></input>
           <label htmlFor="password">Password</label>
           <input type="password" id="password" name="password" required></input>

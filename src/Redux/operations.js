@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
-
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
@@ -19,12 +18,12 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ name, phone }, thunkAPI) => {
+  async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', {
         id: nanoid(),
         name: name,
-        phone: phone,
+        number: number,
       });
       return response.data;
     } catch (error) {

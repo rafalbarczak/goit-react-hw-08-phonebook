@@ -17,7 +17,7 @@ import { RestrictedRoute } from './RestrictedRoute';
 const Home = lazy(() => import('../pages/Home/Home'));
 const Register = lazy(() => import('../pages/Register/Register'));
 const Login = lazy(() => import('../pages/Login/Login'));
-const ContactList = lazy(() => import('../pages/ContactList/ContactList'));
+const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute redirectTo="/login" component={<ContactList />} />
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
           {/* <Route path="*" element={<Home />} /> */}

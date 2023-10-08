@@ -12,7 +12,7 @@ export const Contact = ({ contact }) => {
     <>
       {contact && (
         <div>
-          {contact.name}: {contact.phone}
+          {contact.name}: {contact.number}
           <button
             className={css.deleteBtn}
             name="delete"
@@ -30,6 +30,6 @@ Contact.propTypes = {
   contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    phone: PropTypes.string.isRequired,
+    number: PropTypes.string.isRequired,
   }),
 };
