@@ -1,18 +1,31 @@
-import { Link } from 'react-router-dom';
 import { Navigation } from 'components/Navigation/Navigation';
-import { useAuth } from 'components/hooks/useAuth';
+import { useAuth } from 'hooks/useAuth';
 import { AuthNav } from 'components/AuthNav/AuthNav';
 import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Grid } from '@mui/joy';
 
 export const AppBar = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <header>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}{' '}
+      <Grid
+        container
+        justifyContent="space-between"
+        marginBottom="50px"
+        marginTop="5px"
+      >
+        <Grid>
+          <Navigation />
+        </Grid>
+        {isLoggedIn ? (
+          <UserMenu />
+        ) : (
+          <Grid>
+            <AuthNav />
+          </Grid>
+        )}{' '}
+      </Grid>
     </header>
   );
 };
-
-export default AppBar;

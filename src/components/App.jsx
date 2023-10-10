@@ -1,16 +1,9 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactFilter } from './ContactFilter/ContactFilter';
-import { Loader } from './Loader/Loader';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'Redux/selectors';
+import { useDispatch } from 'react-redux';
 import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './SharedLayout/SharedLayout';
-import { fetchContacts } from 'Redux/operations';
-// import { Login} from '../pages/Login/Login';
-// import { Register } from '../pages/Register/Register';
+import { SharedLayout } from './SharedLayout';
 import { refreshUser } from 'Redux/auth/operations';
-import { useAuth } from './hooks/useAuth';
+import { useAuth } from '../hooks/useAuth';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
@@ -22,7 +15,6 @@ const Contacts = lazy(() => import('../pages/Contacts/Contacts'));
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  const { isLoading } = useSelector(getContacts);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -38,7 +30,10 @@ export const App = () => {
           <Route
             path="/register"
             element={
-              <RestrictedRoute redirectTo="/login" component={<Register />} />
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<Register />}
+              />
             }
           />
           <Route
@@ -53,16 +48,8 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
-          {/* <Route path="*" element={<Home />} /> */}
         </Route>
       </Routes>
     </div>
   );
 };
-
-// <h1>Phonebook</h1>
-// <ContactForm />
-// <h2>Contacts</h2>
-// <ContactFilter />
-// <ContactList />
-// {isLoading && <Loader />}

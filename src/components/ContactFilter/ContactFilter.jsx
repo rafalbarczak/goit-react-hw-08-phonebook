@@ -1,7 +1,7 @@
 import { getFilter } from 'Redux/selectors';
-import css from './ContactFilter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { setFilter } from 'Redux/actions';
+import { Card, Input, Typography } from '@mui/joy';
 
 export const ContactFilter = () => {
   const dispatch = useDispatch();
@@ -12,19 +12,18 @@ export const ContactFilter = () => {
   };
 
   return (
-    <div className={css.filter}>
-      <label htmlFor="filter" className={css.filter__label}>
-        Find contacts by name
+    <Card variant="plain" maxWidth="50px">
+      <label htmlFor="filter">
+        <Typography level="title-md">Find contacts by name</Typography>
       </label>
-      <input
-        className={css.filter__input}
+      <Input
         type="text"
         name="filter"
         id="filter"
         value={filter}
         onChange={handleFilterChange}
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-      ></input>
-    </div>
+      />
+    </Card>
   );
 };

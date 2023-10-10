@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
+import { Grid, Button } from '@mui/joy';
 
 export const AuthNav = () => {
   return (
-    <div>
-      <button component={Link} to="/register" type="button">
-        <Link to="/register">Register</Link>
-      </button>{' '}
-      <button type="button">
-        <Link to="/login">Log In</Link>
-      </button>
-    </div>
+    <Grid container spacing={3}>
+      <Grid>
+        <Button component={Link} to="/register">
+          Register
+        </Button>
+      </Grid>
+      <Grid>
+        <Button component={Link} to="/login">
+          Log in
+        </Button>
+      </Grid>
+    </Grid>
   );
 };

@@ -1,7 +1,9 @@
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'Redux/selectors';
-import { addContact } from 'Redux/operations';
+import { addContact } from 'Redux/contacts/operations';
+import { Button, Card, Input } from '@mui/joy';
+import { PersonAdd } from '@mui/icons-material';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -26,34 +28,28 @@ export const ContactForm = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={handleSubmit}>
-      <label htmlFor="name" className={css.form__label}>
-        Name
-      </label>
-      <input
-        className={css.form__input}
-        type="text"
-        name="name"
-        id="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-      <label htmlFor="number" className={css.form__label}>
-        Number
-      </label>
-      <input
-        className={css.form__input}
-        type="tel"
-        name="number"
-        id="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-      />
-      <button className={css.form__btn} type="submit">
-        Add contact
-      </button>
-    </form>
+    <Card variant="soft" color="primary">
+      <form className={css.form} onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="name"
+          id="name"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          placeholder="Insert name"
+          required
+        />
+        <Input
+          type="tel"
+          name="number"
+          id="number"
+          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+          placeholder="Insert phone number"
+          required
+        />
+        <Button startDecorator={<PersonAdd />} type="submit">
+          Add contact
+        </Button>
+      </form>
+    </Card>
   );
 };

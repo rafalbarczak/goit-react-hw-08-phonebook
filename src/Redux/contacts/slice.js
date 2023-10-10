@@ -46,7 +46,7 @@ const contactsSlice = createSlice({
         state.error = null;
         const { name, number } = action.payload;
         const newContact = {
-          id: nanoid(),
+          // id: nanoid(),
           // state.items.length === 0
           //   ? 1
           //   : Number(state.items[state.items.length - 1].id) + 1,
