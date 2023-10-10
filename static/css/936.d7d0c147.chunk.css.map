@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/936.d7d0c147.chunk.css","mappings":"AAAA,qBACE,aACF,CAMA,qCACE,iBACF","sources":["pages/Home/Home.module.css"],"sourcesContent":[".wrapper {\r\n  margin: 0 auto;\r\n}\r\n\r\n.title {\r\n  text-align: center;\r\n}\r\n\r\n.text {\r\n  text-align: center;\r\n}\r\n"],"names":[],"sourceRoot":""}
