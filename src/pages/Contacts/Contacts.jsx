@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { fetchContacts } from 'Redux/contacts/operations';
-import { getContacts, getFilteredContacts } from 'Redux/selectors';
+import { getContacts, getFilter, getFilteredContacts } from 'Redux/selectors';
 import { ContactFilter } from 'components/ContactFilter/ContactFilter';
 import { Helmet } from 'react-helmet';
 import { CircularProgress, Typography } from '@mui/joy';
@@ -12,6 +12,7 @@ const Contacts = () => {
   const dispatch = useDispatch();
   const { isLoading } = useSelector(getContacts);
   const filteredContacts = useSelector(getFilteredContacts);
+  const filter = useSelector(getFilter);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,7 +25,7 @@ const Contacts = () => {
         <title>Contacts</title>
       </Helmet>
       <ContactForm />
-      {filteredContacts.length > 0 ? (
+      {filteredContacts.length > 0 || filter !== '' ? (
         <>
           <ContactFilter />
           <ContactList />
